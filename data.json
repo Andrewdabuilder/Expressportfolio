@@ -1,0 +1,6 @@
+{
+    "users":[{name:..., lastname:..., email:..., id:... },{...},...],
+    "blogs":[{title:..., author:..., date:..., id:... },{...},...]
+
+}
+
