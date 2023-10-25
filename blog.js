@@ -3,8 +3,8 @@
 // load node into module 
 const http = require('http')
 
-import mongoose from 'mongoose';
-mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost/your-app-name');
+//import mongoose from 'mongoose';
+// mongoose.connect(process.env.DATABASE_URL || 'mongodb://localhost/your-app-name');
 
 // start Mongo
 // start MongoDB Server
