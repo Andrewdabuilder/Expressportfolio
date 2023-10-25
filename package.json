@@ -4,6 +4,7 @@
     "main": "blog.js",
     "author": "Andrew Gallagher",
     "dependencies": {
-        "express": "^4.18.2"
+        "express": "^4.18.2",
+        "mongodb": "^6.2.0"
     }
 }
