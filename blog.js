@@ -8,8 +8,7 @@ const http = require('http')
 const express = require('express')
 const app = express()
 
-// parse application/x-www-form-urlencoded
-app.use(express.urlencoded({ extended: false }))
+
 
 
 // load own modules
@@ -17,6 +16,12 @@ const createUsers = require('./modules/createUsers')
 const removeUsers = require('./modules/removeUsers')
 const createBlogs = require('./modules/createBlogs')
 const removeBlogs = require('./modules/removeBlogs')
+const queryBlogs = require('./modules/queryBlogs')
+const logger = require('./modules/logger')
+
+// parse application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: false }))
+app.use(logger);
 
 // define the routes
 app.get('/', (req, res) => {
@@ -109,6 +114,9 @@ const server = http.createServer(app);
 
 // server listen for incoming requests
 server.listen(3000);
+
+//Access the page by going to here:
+// http://localhost:3000/
 
 console.log('My blog is live at port 3000')
 

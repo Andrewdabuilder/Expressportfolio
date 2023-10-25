@@ -2,6 +2,8 @@
     "name": "simple_blog",
     "version": "0.0.1",
     "main": "blog.js",
-    "author": "Andrew Gallagher"
-  }
-  
+    "author": "Andrew Gallagher",
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}
