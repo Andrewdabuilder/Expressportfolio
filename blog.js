@@ -42,64 +42,24 @@ app.post('/createblogs', blogController.createBlog)
 
 app.post('/removeblogs', blogController.removeBlog)
 
-app.get('/blog/:year?/:month?/:day?', (req, res) => {
+app.get('/blogs/:year?/:month?/:day?',
 
-  url = req.url
-  year = req.params.year
-  month = req.params.month
-  day = req.params.day
+        (req, res, next) => {
+          url = req.url
+          year = req.params.year
+          month = req.params.month
+          day = req.params.day
 
-  var allBlogs = queryBlogs.queryAllBlogs()
+          next()
+        },
 
-    if (url == '/blog') {
-      if (allBlogs.length == 0) {
-        res.send('no post found')
-      } else {
-        res.send(allBlogs)
-      }
-    }
+        blogController.returnAllBlogs,
+        blogController.returnYearBlogs,
+        blogController.returnMonthBlogs,
+        blogController.returnDateBlogs
+      )
 
-    else if (url == '/blog/'+year) {
 
-      const blogsYear = queryBlogs.queryBlogsYear(allBlogs)
-
-      if(blogsYear.length == 0) {
-        res.send('no post found for this year')
-      } else {
-        res.send(blogsYear)
-      }
-
-    }
-
-    else if (url == '/blog/'+year+'/'+month) {
-
-      const blogsYearMonth = queryBlogs.queryBlogsYearMonth(allBlogs)
-
-      if(blogsYearMonth.length == 0) {
-        res.send('no post found for this year and month')
-      } else {
-        res.send(blogsYearMonth)
-      }
-
-    }
-
-    else if (url == '/blog/'+year+'/'+month+'/'+day) {
-
-      const blogsYearMonthDay = queryBlogs.queryBlogsYearMonthDay(allBlogs)
-
-      if(blogsYearMonthDay.length == 0) {
-        res.send('no post found for this year and month and day')
-      } else {
-        res.send(blogsYearMonthDay)
-      }
-
-    }
-
-    else {
-      res.status(404).send('Not Found')
-    }
-
-})
 
 app.post('/createusers', (req, res) => {
     createUsers(req, res)
