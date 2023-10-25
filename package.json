@@ -5,6 +5,7 @@
     "author": "Andrew Gallagher",
     "dependencies": {
         "express": "^4.18.2",
-        "mongodb": "^6.2.0"
+        "mongodb": "^6.2.0",
+        "mongoose": "^7.6.3"
     }
 }
